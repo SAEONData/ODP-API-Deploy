@@ -9,5 +9,4 @@ services:
       - "8979:8999"
     environment:
       - CKAN_URL
-      - CKAN_APIKEY
     restart: always
