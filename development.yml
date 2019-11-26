@@ -1,0 +1,38 @@
+version: "3.5"
+services:
+  odp-api-dev:
+    container_name: odp-api-dev
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - SERVER_ENV=development
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8888
+
+      - HYDRA_ADMIN_URL=https://identity.saeon.dvn:9001
+      - OAUTH2_AUDIENCE=ODP-API
+
+      - CKAN_ADAPTER.ROUTES=["/metadata/"]
+      - CKAN_ADAPTER.CKAN_URL=http://ckan01.saeon.dvn
+
+  odp-api-dev-migration:
+    container_name: odp-api-dev-migration
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8777:8888"
+    environment:
+      - SERVER_ENV=development
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8888
+
+      - NO_AUTH=True
+
+      - CKAN_ADAPTER.ROUTES=["/metadata/"]
+      - CKAN_ADAPTER.CKAN_URL=http://ckan01.saeon.dvn
