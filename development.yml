@@ -17,7 +17,7 @@ services:
       - OAUTH2_AUDIENCE=ODP-API
 
       - CKAN_ADAPTER.ROUTES=["/metadata/"]
-      - CKAN_ADAPTER.CKAN_URL=http://ckan01.saeon.dvn
+      - CKAN_ADAPTER.CKAN_URL=https://ckan01.saeon.dvn
 
   odp-api-dev-migration:
     container_name: odp-api-dev-migration
@@ -35,4 +35,4 @@ services:
       - NO_AUTH=True
 
       - CKAN_ADAPTER.ROUTES=["/metadata/"]
-      - CKAN_ADAPTER.CKAN_URL=http://ckan01.saeon.dvn
+      - CKAN_ADAPTER.CKAN_URL=https://ckan01.saeon.dvn
