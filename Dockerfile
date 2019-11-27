@@ -11,4 +11,4 @@ RUN cd /srv/Hydra-Admin-Client && pip3 install . && pip3 install -r requirements
 RUN cd /srv/ODP-API && pip3 install . && pip3 install -r requirements.txt
 RUN cd /srv/ODP-API-CKANAdapter && pip3 install . && pip3 install -r requirements.txt
 
-CMD ["python3", "/srv/ODP-API/odpapi/main.py"]
+CMD ["python3", "/srv/ODP-API/odp/main.py"]
