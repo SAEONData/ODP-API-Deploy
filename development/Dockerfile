@@ -7,11 +7,11 @@ RUN cd /srv && git clone https://github.com/SAEONData/ODP-API.git
 RUN cd /srv && git clone https://github.com/SAEONData/ODP-API-CKANAdapter.git
 RUN cd /srv && git clone https://github.com/SAEONData/Hydra-Admin-Client.git
 
-RUN cd /srv/ODP-API && pip3 install . --no-deps
-RUN cd /srv/ODP-API-CKANAdapter && pip3 install . --no-deps
-RUN cd /srv/Hydra-Admin-Client && pip3 install . --no-deps
-
 COPY requirements.txt /srv/
 RUN pip3 install -r /srv/requirements.txt
+
+RUN cd /srv/ODP-API && pip3 install .
+RUN cd /srv/ODP-API-CKANAdapter && pip3 install .
+RUN cd /srv/Hydra-Admin-Client && pip3 install .
 
 CMD ["python3", "/srv/ODP-API/odp/main.py"]
