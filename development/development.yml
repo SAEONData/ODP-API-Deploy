@@ -13,7 +13,7 @@ services:
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=8888
 
-      - HYDRA_ADMIN_URL=https://identity.saeon.dvn:9001
+      - HYDRA_ADMIN_URL=https://hydra-admin.saeon.dvn
       - OAUTH2_AUDIENCE=ODP-API
 
       - CKAN_ADAPTER.ROUTES=["/metadata/"]
