@@ -6,6 +6,8 @@ Docker-based deployment of the [ODP API](https://github.com/SAEONData/ODP-API).
 
 ### Dev platform
 
+    sudo docker-compose -f development.yml down
+    sudo docker-compose -f development.yml build --no-cache
     sudo docker-compose -f development.yml up -d
 
 ## Python dependencies
