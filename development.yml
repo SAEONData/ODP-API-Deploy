@@ -36,6 +36,13 @@ services:
       - SERVER_ENV=development
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=8888
+
       - NO_AUTH=True
+
       - METADATA.ADAPTER=CKANAdapter
+      - METADATA.OAUTH2_SCOPE=ODP.Metadata
+      - METADATA.READONLY_ROLES=[]
+      - METADATA.READWRITE_ROLES=[]
+      - METADATA.ADMIN_ROLES=[]
+
       - CKAN_ADAPTER.CKAN_URL=https://ckan01.saeon.dvn
