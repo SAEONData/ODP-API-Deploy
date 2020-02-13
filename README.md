@@ -10,6 +10,23 @@ Docker-based deployment of the [ODP API](https://github.com/SAEONData/ODP-API).
     sudo docker-compose -f development.yml build --no-cache
     sudo docker-compose -f development.yml up -d
 
+### Testing / staging / production
+
+Create a `.env` file in the project directory on the target machine, and set the following environment variables:
+
+- **`SERVER_ENV`**: deployment environment: `development`|`testing`|`staging`|`production`
+- **`ACCOUNTS_API_URL`**: URL of the ODP Accounts API
+- **`METADATA.READONLY_ROLES`**: JSON-encoded list of roles that may read metadata within the same institution
+- **`METADATA.READWRITE_ROLES`**: JSON-encoded list of roles that may read and write metadata within the same institution
+- **`METADATA.ADMIN_ROLES`**: JSON-encoded list of roles that may read and write metadata belonging to _any_ institution,
+and that may access metadata admin functions
+
+Rebuild and restart the container in the background:
+
+    sudo docker-compose -f production.yml down
+    sudo docker-compose -f production.yml build --no-cache
+    sudo docker-compose -f production.yml up -d
+
 ## Python dependencies
 
 To re-generate `requirements.txt` for a new release, activate the appropriate
