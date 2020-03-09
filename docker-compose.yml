@@ -1,11 +1,19 @@
 version: "3.5"
 
+networks:
+  odp-api-net:
+    name: odp-api-net
+  odp-api-migration-net:
+    name: odp-api-migration-net
+
 services:
   odp-api:
     container_name: odp-api
     build:
       context: .
       dockerfile: odp-api.dockerfile
+    networks:
+      - odp-api-net
     ports:
       - "8888:8888"
     environment:
@@ -36,6 +44,8 @@ services:
     build:
       context: .
       dockerfile: odp-api-migration.dockerfile
+    networks:
+      - odp-api-migration-net
     ports:
       - "8777:8888"
     environment:
