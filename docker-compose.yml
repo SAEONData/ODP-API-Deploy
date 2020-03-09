@@ -62,4 +62,7 @@ services:
 
       - SEARCH.ADAPTER=ElasticAdapter
       - SEARCH.OAUTH2_SCOPE=ODP.Metadata
+
+      - ELASTIC_ADAPTER.ES_AGENT_URL
+      - ELASTIC_ADAPTER.SEARCH_INDEXES
     restart: always
