@@ -1,17 +1,18 @@
 FROM python:3.6
 
-RUN mkdir -p /srv
-RUN cd /srv && git clone https://github.com/SAEONData/ODP-API.git
-RUN cd /srv && git clone https://github.com/SAEONData/ODP-API-CKANAdapter.git
-RUN cd /srv && git clone https://github.com/SAEONData/ODP-API-ElasticAdapter.git
-RUN cd /srv && git clone https://github.com/SAEONData/ODP-AccountsLib.git
+WORKDIR /srv
 
-COPY requirements.txt /srv/
-RUN pip install -r /srv/requirements.txt
+RUN git clone https://github.com/SAEONData/ODP-API.git
+RUN git clone https://github.com/SAEONData/ODP-API-CKANAdapter.git
+RUN git clone https://github.com/SAEONData/ODP-API-ElasticAdapter.git
+RUN git clone https://github.com/SAEONData/ODP-AccountsLib.git
 
-RUN cd /srv/ODP-API && pip install .
-RUN cd /srv/ODP-API-CKANAdapter && pip install .
-RUN cd /srv/ODP-API-ElasticAdapter && pip install .
-RUN cd /srv/ODP-AccountsLib && pip install .
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-CMD ["python", "/srv/ODP-API/odpapi/main.py"]
+RUN cd ODP-API && pip install .
+RUN cd ODP-API-CKANAdapter && pip install .
+RUN cd ODP-API-ElasticAdapter && pip install .
+RUN cd ODP-AccountsLib && pip install .
+
+CMD ["python", "ODP-API/odpapi/main.py"]
