@@ -1,0 +1,52 @@
+version: "3.5"
+
+services:
+  odp-api:
+    container_name: odp-api
+    build:
+      context: .
+      dockerfile: odp-api.dockerfile
+    ports:
+      - "8888:8888"
+    environment:
+      - SERVER_ENV
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8888
+
+      - ACCOUNTS_API_URL
+      - OAUTH2_AUDIENCE=ODP-API
+
+      - METADATA.ADAPTER=CKANAdapter
+      - METADATA.OAUTH2_SCOPE=ODP.Metadata
+      - METADATA.READONLY_ROLES
+      - METADATA.READWRITE_ROLES
+      - METADATA.ADMIN_ROLES
+
+      - CKAN_ADAPTER.CKAN_URL
+
+      - SEARCH.ADAPTER=ElasticAdapter
+      - SEARCH.OAUTH2_SCOPE=ODP.Metadata
+
+      - ELASTIC_ADAPTER.ES_AGENT_URL
+      - ELASTIC_ADAPTER.SEARCH_INDEXES
+    restart: always
+
+  odp-api-migration:
+    container_name: odp-api-migration
+    build:
+      context: .
+      dockerfile: odp-api-migration.dockerfile
+    ports:
+      - "8777:8888"
+    environment:
+      - SERVER_ENV
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8888
+
+      - NO_AUTH=True
+
+      - METADATA.ADAPTER=CKANAdapter
+      - METADATA.OAUTH2_SCOPE=ODP.Metadata
+
+      - CKAN_ADAPTER.CKAN_URL
+    restart: always

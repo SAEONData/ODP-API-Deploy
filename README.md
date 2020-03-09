@@ -4,14 +4,6 @@ Docker-based deployment of the [ODP API](https://github.com/SAEONData/ODP-API).
 
 ## Installation
 
-### Dev platform
-
-    sudo docker-compose -f development.yml down
-    sudo docker-compose -f development.yml build --no-cache
-    sudo docker-compose -f development.yml up -d
-
-### Testing / staging / production
-
 Create a `.env` file in the project directory on the target machine, and set the following environment variables:
 
 - **`SERVER_ENV`**: deployment environment: `development`|`testing`|`staging`|`production`
@@ -20,12 +12,15 @@ Create a `.env` file in the project directory on the target machine, and set the
 - **`METADATA.READWRITE_ROLES`**: JSON-encoded list of roles that may read and write metadata within the same institution
 - **`METADATA.ADMIN_ROLES`**: JSON-encoded list of roles that may read and write metadata belonging to _any_ institution,
 and that may access metadata admin functions
+- **`CKAN_ADAPTER.CKAN_URL`**: URL of the CKAN server
+- **`ELASTIC_ADAPTER.ES_AGENT_URL`**: URL of the Elastic search agent
+- **`ELASTIC_ADAPTER.SEARCH_INDEXES`**: JSON-encoded list of Elastic search indexes
 
 Rebuild and restart the container in the background:
 
-    sudo docker-compose -f production.yml down
-    sudo docker-compose -f production.yml build --no-cache
-    sudo docker-compose -f production.yml up -d
+    docker-compose down
+    docker-compose build --no-cache
+    docker-compose up -d
 
 ## Python dependencies
 
