@@ -37,6 +37,8 @@ services:
 
       - ELASTIC_ADAPTER.ES_AGENT_URL
       - ELASTIC_ADAPTER.SEARCH_INDEXES
+
+      - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
     restart: always
 
   odp-api-migration:
@@ -65,4 +67,6 @@ services:
 
       - ELASTIC_ADAPTER.ES_AGENT_URL
       - ELASTIC_ADAPTER.SEARCH_INDEXES
+
+      - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
     restart: always
