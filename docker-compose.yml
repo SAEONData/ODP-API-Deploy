@@ -35,8 +35,8 @@ services:
       - SEARCH.ADAPTER=ElasticAdapter
       - SEARCH.OAUTH2_SCOPE=ODP.Metadata
 
-      - ELASTIC_ADAPTER.ES_AGENT_URL
-      - ELASTIC_ADAPTER.SEARCH_INDEXES
+      - ELASTIC_ADAPTER.ES_URL
+      - ELASTIC_ADAPTER.INDICES
 
       - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
     restart: always
@@ -65,8 +65,8 @@ services:
       - SEARCH.ADAPTER=ElasticAdapter
       - SEARCH.OAUTH2_SCOPE=ODP.Metadata
 
-      - ELASTIC_ADAPTER.ES_AGENT_URL
-      - ELASTIC_ADAPTER.SEARCH_INDEXES
+      - ELASTIC_ADAPTER.ES_URL
+      - ELASTIC_ADAPTER.INDICES
 
       - REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
     restart: always

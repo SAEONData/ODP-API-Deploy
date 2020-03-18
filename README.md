@@ -13,8 +13,8 @@ Create a `.env` file in the project directory on the target machine, and set the
 - **`METADATA.ADMIN_ROLES`**: JSON-encoded list of roles that may read and write metadata belonging to _any_ institution,
 and that may access metadata admin functions
 - **`CKAN_ADAPTER.CKAN_URL`**: URL of the CKAN server
-- **`ELASTIC_ADAPTER.ES_AGENT_URL`**: URL of the Elastic search agent
-- **`ELASTIC_ADAPTER.SEARCH_INDEXES`**: JSON-encoded list of Elastic search indexes
+- **`ELASTIC_ADAPTER.ES_URL`**: URL of the Elasticsearch instance; must include port
+- **`ELASTIC_ADAPTER.INDICES`**: JSON-encoded list of Elasticsearch indexes
 
 Rebuild and restart the container in the background:
 
