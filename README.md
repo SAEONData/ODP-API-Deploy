@@ -6,6 +6,7 @@ Docker-based deployment of the [ODP API](https://github.com/SAEONData/ODP-API).
 
 Create a `.env` file in the project directory on the target machine, and set the following environment variables:
 
+- **`CHECKOUT_BRANCH`**: branch of the ODP-API and ODP-API-*Adapter projects to clone
 - **`SERVER_ENV`**: deployment environment: `development`|`testing`|`staging`|`production`
 - **`ACCOUNTS_API_URL`**: URL of the ODP Accounts API
 - **`METADATA.READONLY_ROLES`**: JSON-encoded list of roles that may read metadata within the same institution

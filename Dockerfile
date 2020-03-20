@@ -1,10 +1,12 @@
 FROM python:3.6
 
+ARG CHECKOUT_BRANCH
+
 WORKDIR /srv
 
-RUN git clone https://github.com/SAEONData/ODP-API.git
-RUN git clone https://github.com/SAEONData/ODP-API-CKANAdapter.git
-RUN git clone https://github.com/SAEONData/ODP-API-ElasticAdapter.git
+RUN git clone -b ${CHECKOUT_BRANCH} https://github.com/SAEONData/ODP-API.git
+RUN git clone -b ${CHECKOUT_BRANCH} https://github.com/SAEONData/ODP-API-CKANAdapter.git
+RUN git clone -b ${CHECKOUT_BRANCH} https://github.com/SAEONData/ODP-API-ElasticAdapter.git
 RUN git clone https://github.com/SAEONData/ODP-AccountsLib.git
 
 COPY requirements.txt .
